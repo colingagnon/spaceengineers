@@ -1,0 +1,13 @@
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Dythco.deps.json
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Dythco.runtimeconfig.json
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Dythco.runtimeconfig.dev.json
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Dythco.dll
+C:\w\SpaceEngDythco\bin\Debug\netcoreapp2.0\Dythco.pdb
+C:\w\SpaceEngDythco\obj\Debug\netcoreapp2.0\Dythco.csproj.CoreCompileInputs.cache
+C:\w\SpaceEngDythco\obj\Debug\netcoreapp2.0\Dythco.AssemblyInfoInputs.cache
+C:\w\SpaceEngDythco\obj\Debug\netcoreapp2.0\Dythco.AssemblyInfo.cs
+C:\w\SpaceEngDythco\obj\Debug\netcoreapp2.0\Dythco.dll
+C:\w\SpaceEngDythco\obj\Debug\netcoreapp2.0\Dythco.pdb

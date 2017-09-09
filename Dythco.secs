@@ -1,0 +1,43 @@
+
+public string getLevel(int current,int total,int precision=3,string units="",Boolean showPercent=false){string text=getNumber(current,precision)+" / "+getNumber(total,precision);if(units!=""){text+=" "+units;}
+if(showPercent){text+=" - "+getPercent(calcPercent((double)current,(double)total));}
+return text;}
+public string getBar(double percent,int size=20,Boolean showBrackets=true,Boolean showPercent=true){int count=(int)Math.Floor((percent)*size);string text=getString(count,"|")+getString(size-count," ");if(showBrackets){text="("+text+")";}
+if(showPercent){text+=" - "+getPercent(percent);}
+return text;}
+public string getTitle(string label,string spacer=":",int padding=1){return label+spacer+getString(padding," ");}
+public string getNumber(int number,int precision=3)
+{int length=0;if(number==0){length=1;}else{length=(int)Math.Floor(Math.Log10(number))+1;}
+return getString(precision-length,"0")+number.ToString();}
+public string getString(int count,string character)
+{string text="";for(int i=0;i<count;i++)
+{text+=character;}
+return text;}
+public string getPercent(double percent)
+{percent=percent*100;if(percent==0){return"  0%";}else if(percent<100){return string.Concat(" ",percent.ToString(),"%");}else{return"100%";}}
+public string getScreen(List<string>items,string seperator="\n")
+{string text="";for(int i=0;i<items.Count;i++)
+{text+=items[i]+seperator;}
+return text.TrimEnd(seperator.ToCharArray());}
+
+// *****
+
+public double calcUnits(string data)
+{if(data.Contains("KWh")||data.Contains("MWh")){return calcKWh(data);}else if(data.Contains("KW")||data.Contains("MW")){return calcKW(data);}else{return Convert.ToDouble(data);}}
+public double calcKW(string data)
+{return calcKilowatt(data,"MW","KW");}
+public double calcKWh(string data)
+{return calcKilowatt(data,"MWh","KWh");}
+public double calcKilowatt(string data,string m="MWh",string k="KWh")
+{string[]pair=data.Split(" ".ToCharArray());double power=0.0;if(pair.Length==2){if(pair[1]==m){power=Convert.ToDouble(pair[0])*1000;}else if(pair[1]==k){power=Convert.ToDouble(pair[0]);}}
+return power;}
+public double calcListPercent(List<Dictionary<string,string>>list,string l_key="low",string h_key="high")
+{double l=0.0;double h=0.0;foreach(Dictionary<string,string>item in list)
+{l+=calcUnits(item[l_key]);h+=calcUnits(item[h_key]);}
+return calcPercent(l,h);}
+public double calcPercent(double l,double h)
+{if(h>0){return Math.Round(l/h,2);}else{return 0.0;}}
+public Dictionary<string,string>getData(string data)
+{Dictionary<string,string>res=new Dictionary<string,string>();string[]lines=data.Split(Environment.NewLine.ToCharArray());foreach(string line in lines)
+{string[]pairs=line.Split(":".ToCharArray());res[pairs[0].Trim()]=pairs[1].Trim();}
+return res;}
